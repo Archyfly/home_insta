@@ -3,10 +3,14 @@
 <h4><%= @user.username %></h4>
 <div><%= @user.info %></div>
 <div><% @user.image_data %></div>
-<div><%= link_to 'Delete',
+
+<span>
+  <%= link_to "All users", users_path %> |
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Delete',
                  user_path(@user),
                  method: :delete,
-                 data: { confirm: 'User will be deleted! Are you sure?' } %></div>
+                 data: { confirm: 'User will be deleted! Are you sure?' } %></span>
 <%#= link_to 'Add Photo', new_user_photo_path(@user.id) %>
 
   <%# if @user.image_data? %>

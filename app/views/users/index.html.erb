@@ -1,7 +1,7 @@
-<h3>Users info</h3>
+<h2>Users info</h2>
 
 <% @users.each do |user| %>
-  <h3>Name: <%= user.username %></h3>
+  <h2>Name: <%= user.username %></h2>
   <p> Email: <%= user.email %></p>
   <p> Image_data: <%= user.image_data %></p>
   <p> User info: <%= user.info %></p>
@@ -10,4 +10,11 @@
   <p> <%# link_to "User photos", user_photos_path(user.id) %>  </p>
 
   <div><%# post.body %></div>
+  <span>
+  <%= link_to "Add new user", new_user_path %> |
+  <%= link_to 'Edit', edit_user_path(user) %> |
+  <%= link_to 'Delete',
+                user_path(user),
+                method: :delete,
+                data: { confirm: 'User will be deleted! Are you sure?' } %></span>
 <% end %>

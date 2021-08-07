@@ -1,5 +1,6 @@
 
 <%= form_with model: @user do |form| %>
+  <%= render "shared/errors", resource: @user %>
   <h4>
     <div class="username">
       <%= form.label :username %><br/>
