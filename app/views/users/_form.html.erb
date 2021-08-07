@@ -1,0 +1,21 @@
+
+<%= form_with model: @user do |form| %>
+  <%= render "shared/errors", resource: @user %>
+  <h4>
+    <div class="username">
+      <%= form.label :username %><br/>
+      <%= form.text_field :username, size: "20" %><br/>
+    </div>
+    <div class="email" >
+      <%= form.label :email %><br/>
+      <%= form.text_field :email %>
+    </div>
+    <div class="info" >
+      <%= form.label :info %><br/>
+      <%= form.text_field :info %>
+    </div>
+
+  </h4>
+
+  <p><%= form.submit %></p>
+<% end %>
