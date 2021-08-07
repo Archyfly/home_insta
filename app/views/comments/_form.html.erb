@@ -1,0 +1,9 @@
+<%= form_for [current_user, @post, @comment] do |form| %>
+  <%= render "shared/errors", resource: @comment %>
+  <h4>
+    <%= form.label :body %><br/>
+    <%= form.text_area :body, size: "60x10" %>
+  </h4>
+
+  <p><%= form.submit %></p>
+<% end %>
