@@ -1,0 +1,11 @@
+<h2>all posts</h2>
+
+<% @users.each do |user| %>
+  <h2><%= user.username %></h2>
+  <% user.posts.each do |post| %>
+     <div>
+       <%= post.title %>
+       <%= post.body %>
+     </div>
+  <% end %>
+<% end %>

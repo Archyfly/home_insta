@@ -1,4 +1,4 @@
-<h2>Posts of all users </h2>
+<h2>Posts of current user </h2>
 <%= flash[:message]%>
 <div id="box-container" >
 <% @posts.each do |post| %>
@@ -21,5 +21,7 @@
   </div>
   </div>
   <% end %>
+
+  <%= link_to "Add new post", new_user_post_path %>
 </div>
 
