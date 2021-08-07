@@ -1,12 +1,25 @@
-<h3>Post for current user</h3>
+<div class="page-header" style="text-align: center"><h4><%= @post.title %></h4></div>
 <%= flash[:message]%>
-<h4><%= @post.title %></h4>
+
 <div><%= @post.body %></div>
 <br/>
 
-Comments:
-<%# @post.comments.each do |comment| %>
+<%= link_to 'Edit', edit_user_post_path(@post.user_id, @post.id) %> |
+<%= link_to 'Delete',
+            user_post_path(@post.user_id, @post.id),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+<br/>
+<blockquote class="blockquote">
+  <p class="mb-0">Comments to this post:</p>
+<% if @post.comments.exists? %>
+  <% @post.comments.each do |comment| %>
+      <footer class="blockquote-footer"><cite title=><%= comment.body %></cite> </footer>
 
-  <div><%#= comment.description %></div>
-<%# end %>
+  <% end %>
+<% else %>
+  <div>No comments to this post.</div>
+<% end %>
+</blockquote>
+<%= link_to 'Add comment', new_user_post_comment_path(@user.id, @post.id) %>
 

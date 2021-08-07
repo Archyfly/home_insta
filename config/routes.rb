@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'users#all_posts'
 
   resources :users do#, only: [:index, :show, :edit, :update]
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
   end
 
 end
