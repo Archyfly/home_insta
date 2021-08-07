@@ -37,6 +37,10 @@ class UsersController < ApplicationController
     redirect_to users_path, flash: { success: 'User deleted.' }
   end
 
+  def all_posts
+    @users = User.all
+  end
+
   private
 
   def find_user

@@ -1,0 +1,12 @@
+<div class="page-header" style="text-align: center">All posts</div>
+
+<% @users.each do |user| %>
+  <h2><%= user.username %></h2>
+  <% user.posts.each do |post| %>
+     <div>
+       <%= post.title %>
+       <%= link_to 'Show post', user_post_path(user, post) %>
+
+     </div>
+  <% end %>
+<% end %>

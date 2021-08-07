@@ -1,0 +1,27 @@
+<h2>Posts of current user </h2>
+<%= flash[:message]%>
+<div id="box-container" >
+<% @posts.each do |post| %>
+  <div id="box-container" style="width: content-box">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="/download.jpeg" alt="Card image cap">
+      <h5 class="card-title">
+        <div><%= link_to "#{post.title}", user_post_path(post.user_id, post.id) %></div>
+        <div> by user: <%= post.user.username %></div>
+        <%= link_to 'Show', user_post_path(post.user_id, post.id) %> |
+        <%= link_to 'Edit', edit_user_post_path(post.user_id, post.id) %> |
+        <%= link_to 'Delete',
+                    user_post_path(post.user_id, post.id),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+      </h5>
+    </div>
+    <div>
+      <p class="card-text"><%= truncate(post.body, :length => 30) %></p>
+  </div>
+  </div>
+  <% end %>
+
+  <%= link_to "Add new post", new_user_post_path %>
+</div>
+
