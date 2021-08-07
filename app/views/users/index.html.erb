@@ -1,7 +1,9 @@
 <h2>Users info</h2>
 
 <% @users.each do |user| %>
-  <h2>Name: <%= user.username %></h2>
+
+  <h3>Name: <%= user.username %></h3>
+  <p>Id: <%= user.id %> </p>
   <p> Email: <%= user.email %></p>
   <p> Image_data: <%= user.image_data %></p>
   <p> User info: <%= user.info %></p>
@@ -11,7 +13,7 @@
 
   <div><%# post.body %></div>
   <span>
-  <%= link_to "Add new user", new_user_path %> |
+  <%= link_to "Add new user", new_user_registration_path %> |
   <%= link_to 'Edit', edit_user_path(user) %> |
   <%= link_to 'Delete',
                 user_path(user),
