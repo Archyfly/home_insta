@@ -221,7 +221,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
@@ -247,3 +247,6 @@ DEPENDENCIES
 
 RUBY VERSION
    ruby 2.5.1p57
+
+BUNDLED WITH
+   1.17.3
