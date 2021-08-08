@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :posts do
       resources :comments
     end
+    resources :followers, only: :index
+    resources :followings, only: :index
   end
 
+  resources :follows, only: [:create]
 end
