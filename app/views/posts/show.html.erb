@@ -4,8 +4,23 @@
 <div><%= @post.body %></div>
 <br/>
 
-<%= link_to 'Edit', edit_user_post_path(@post.user_id, @post.id) %> |
-<%= link_to 'Delete',
+<%# if @post.image_data? %>
+
+  <%# image_tag @user.photos.image_url %>
+  <span> <%#TODO# link_to 'Edit', edit_user_photo_path(@user.id, photo) %></span>
+<%# end %>
+
+<% if @post.photos.present? %>
+  <% @post.photos.each do |photo| %>
+    <p><%= photo.title %></p>
+    <%= image_tag photo.image_url(:small) %>
+
+  <% end %>
+<% end %>
+<br/>
+<%= link_to 'Add photo', new_user_post_photo_path(@user.id, @post.id) %> | <br/>
+<%= link_to 'Edit post', edit_user_post_path(@post.user_id, @post.id) %> |
+<%= link_to 'Delete post',
             user_post_path(@post.user_id, @post.id),
             method: :delete,
             data: { confirm: "Are you sure?" } %>

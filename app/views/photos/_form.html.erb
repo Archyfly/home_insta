@@ -1,0 +1,16 @@
+<%= form_for [current_user, @post, @photo] do |f| %>
+  <%= render "shared/errors", resource: @photo %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.hidden_field :image, value: @photo.cached_image_data %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+
+  <% if @photo.image_data? %>
+    Remove attachment: <%= f.check_box :remove_image %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

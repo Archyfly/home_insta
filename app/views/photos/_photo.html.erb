@@ -1,0 +1,10 @@
+<div>
+  <%= @photos %>
+  <% @photos.each_with_index do |photo, index| %>
+    <% if photo.image_data? %>
+      <%= index %>
+      <%= image_tag photo.image_url(:small) %>
+      <span><%= photo.title %> | <%= link_to 'Edit', edit_user_photo_path(@user.id, photo) %></span>
+    <% end %>
+  <% end %>
+</div>
