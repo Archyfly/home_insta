@@ -234,7 +234,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
-  puma (~> 5.0)
+  puma
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4)
   rails_12factor
@@ -248,8 +248,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 2.5.1
+   ruby 2.5.1p57
 
 BUNDLED WITH
    2.0.2
-
