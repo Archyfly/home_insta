@@ -30,7 +30,9 @@ gem 'bootstrap-sass'
 gem 'spring'
 gem 'shrine', github: 'shrinerb/shrine'
 gem "image_processing"
-gem "mini_magick", ">= 4.3.5"
+gem "mini_magick"
+gem "pundit"
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -38,6 +40,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  #gem "rspec-rails"
 end
 
 group :development do
