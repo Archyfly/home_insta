@@ -4,18 +4,36 @@
 <div><%= @post.body %></div>
 <br/>
 
-<%= link_to 'Edit', edit_user_post_path(@post.user_id, @post.id) %> |
-<%= link_to 'Delete',
+<%# if @post.image_data? %>
+
+  <%# image_tag @user.photos.image_url %>
+  <span> <%#TODO# link_to 'Edit', edit_user_photo_path(@user.id, photo) %></span>
+<%# end %>
+<div class="container-fluid" style="grid-column: auto">
+<% if @post.photos.present? %>
+  <% @post.photos.each do |photo| %>
+    <span><%= photo.title %></span>
+    <span><%= image_tag photo.image_url(:small) %></span>
+      <button class="btn-success"><%= link_to 'Edit photo', edit_user_post_photo_path(@user.id, @post.id, photo.id) %></button>
+    <% end %>
+<% end %>
+<br/>
+</div>
+<%= link_to 'Add photo', new_user_post_photo_path(@user.id, @post.id) %> | <br/>
+
+<%= link_to 'Edit post', edit_user_post_path(@post.user_id, @post.id) %> |
+<%= link_to 'Delete post',
             user_post_path(@post.user_id, @post.id),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
-<br/>
-<blockquote class="blockquote">
-  <p class="mb-0">Comments to this post:</p>
-<% if @post.comments.exists? %>
-  <% @post.comments.each do |comment| %>
-      <footer class="blockquote-footer"><cite title=><%= comment.body %></cite> </footer>
+<br/><br/>
 
+<b>Comments to this post:</b>
+<blockquote class="blockquote">
+  <p class="mb-0">
+    <% if @post.comments.exists? %>
+      <% @post.comments.each do |comment| %>
+      <footer class="blockquote-footer"><cite title=><%= comment.body %></cite> </footer>
   <% end %>
 <% else %>
   <div>No comments to this post.</div>

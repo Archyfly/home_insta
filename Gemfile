@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-
 ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
@@ -29,6 +28,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'spring'
+gem 'shrine', github: 'shrinerb/shrine'
+gem "image_processing"
+gem "mini_magick", ">= 4.3.5"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

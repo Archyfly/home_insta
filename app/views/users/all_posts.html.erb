@@ -1,12 +1,18 @@
 <div class="page-header" style="text-align: center">All posts</div>
-
+<!div class="container-fluid" style="display: flex">
 <% @users.each do |user| %>
-  <h2><%= user.username %></h2>
+  <div id="user-container">
+
+  <div id="user-left"><%= image_tag user.image_url(:small), style: 'height:150px;width:150px;' %>
+  </div>
+  <div id="user-right"><h4><%= link_to "#{user.username}", user_path(user) %></h4>
   <% user.posts.each do |post| %>
      <div>
        <%= post.title %>
        <%= link_to 'Show post', user_post_path(user, post) %>
-
      </div>
+    </div>
   <% end %>
+
+    </div>
 <% end %>

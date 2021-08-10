@@ -16,3 +16,19 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#user-container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+#user-left {
+  width: 50%;
+  float: left;
+}
+
+#user-right {
+  width: 50%;
+  float: right;
+}
+

@@ -1,22 +1,28 @@
 <h2>Users info</h2>
 
 <% @users.each do |user| %>
+  <div id="user-container">
+    <div id="user-left">Avatar:
+      <% if user.image_data? %>
+        <%= image_tag user.image_url(:small) %>
+        <%= link_to 'Edit', edit_user_path(user) %>
+      <% end %>
+    </div>
+    <hr>
+    <div id="user-right">
+      <h4>Username: <%= user.username %></h4>
+      <div>About me: <%= user.info %></div>
+      <%= link_to "View all user posts", user_posts_path(user) %><br/> |
+      <%= link_to 'Edit profile', edit_user_path(user) %> |
+      <%= link_to 'Delete user',
+                  user_path(user),
+                  method: :delete,
+                  data: { confirm: 'User will be deleted! Are you sure?' } %></span>
+    </div>
 
-  <h3>Name: <%= user.username %></h3>
-  <p>Id: <%= user.id %> </p>
-  <p> Email: <%= user.email %></p>
-  <p> Image_data: <%= user.image_data %></p>
-  <p> User info: <%= user.info %></p>
+    </div>
 
-  <p> Photos count: <%# user.photos.count %>  </p>
-  <p> <%# link_to "User photos", user_photos_path(user.id) %>  </p>
+  </div>
+  <% end %>
 
-  <div><%# post.body %></div>
-  <span>
-  <%= link_to "View all user posts", user_posts_path(user) %><br/> |
-  <%= link_to 'Edit profile', edit_user_path(user) %> |
-  <%= link_to 'Delete user',
-                user_path(user),
-                method: :delete,
-                data: { confirm: 'User will be deleted! Are you sure?' } %></span>
-<% end %>
+

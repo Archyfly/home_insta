@@ -1,8 +1,14 @@
 <h3>Info for current user</h3>
 <%= flash[:message]%>
-<h4><%= @user.username %></h4>
-<div><%= @user.info %></div>
-<div><% @user.image_data %></div>
+<h4>Username: <%= @user.username %></h4>
+<div>About me: <%= @user.info %></div>
+<div>Avatar<% @user.image_data %></div>
+<% if @user.image_data? %>
+
+  <%= image_tag @user.image_url(:small) %>
+  <span>  <% link_to 'Edit', edit_user_path(@user.id) %></span>
+  <% end %>
+<br/>
 
 <span>
   <%= link_to "All users", users_path %> |
@@ -17,9 +23,3 @@
 <% end %>
 <%#= link_to 'Add Photo', new_user_photo_path(@user.id) %>
 
-  <%# if @user.image_data? %>
-
-    <%#= image_tag @user.image_url %>
-    <span> | <%# link_to 'Edit', edit_user_photo_path(@user.id, photo) %></span>
-  <%# end %>
-<br/>
