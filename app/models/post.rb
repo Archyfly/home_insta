@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  include ImageUploader[:image]
+  #include ImageUploader::Attachment[:image]
 
   belongs_to :user
   has_many :comments

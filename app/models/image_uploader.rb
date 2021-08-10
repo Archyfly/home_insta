@@ -9,6 +9,7 @@ class ImageUploader < Shrine
   plugin :remove_attachment
   plugin :delete_raw
 
+
   Attacher.validate do
     validate_max_size 1.megabyte, message: "is too large (max is 1 MB)"
     validate_mime_type_inclusion ['image/jpg', 'image/jpeg', 'image/png']
@@ -21,10 +22,10 @@ class ImageUploader < Shrine
     size_800 = pipeline.resize_to_limit!(800, 800)
     size_500 = pipeline.resize_to_limit!(500, 500)
     size_300 = pipeline.resize_to_limit!(300, 300)
-
+    size_150 = pipeline.resize_to_limit!(150, 150)
     original.close!
 
-    { original: io, large: size_800, medium: size_500, small: size_300 }
+    { original: io, large: size_800, medium: size_500, small: size_300, little: size_150 }
   end
 
 end

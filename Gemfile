@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'spring'
-gem 'shrine'
+gem 'shrine', github: 'shrinerb/shrine'
 gem "image_processing"
 gem "mini_magick", ">= 4.3.5"
 

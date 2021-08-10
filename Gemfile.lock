@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/shrinerb/shrine.git
+  revision: 01a2d11efc2c3746bf9eaba9700a97ff54db6d9a
+  specs:
+    shrine (3.4.0)
+      content_disposition (~> 1.0)
+      down (~> 5.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -193,9 +201,6 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    shrine (3.4.0)
-      content_disposition (~> 1.0)
-      down (~> 5.1)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -254,7 +259,7 @@ DEPENDENCIES
   rails_12factor
   sass-rails (>= 6)
   selenium-webdriver
-  shrine
+  shrine!
   spring
   turbolinks (~> 5)
   tzinfo-data
