@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
+
     @user = User.create(user_params)
     if @user.save
       redirect_to users_path, flash: { success: 'User successfully created!' }
@@ -22,9 +23,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    authorize User.find(params[:id])
   end
 
   def update
+    authorize User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user), flash: { success: 'User successfully updated!' }
     else
