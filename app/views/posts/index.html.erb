@@ -4,7 +4,7 @@
 <% @posts.each do |post| %>
   <div id="box-container" style="width: content-box">
     <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="/download.jpeg" alt="Card image cap">
+      <img class="card-img-top" src="/user.png" alt="Card image cap">
       <h5 class="card-title">
         <div><%= link_to "#{post.title}", user_post_path(post.user_id, post.id) %></div>
         <div> by user: <%= post.user.username %></div>
