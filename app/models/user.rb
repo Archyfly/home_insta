@@ -14,8 +14,8 @@ class User < ApplicationRecord
   has_many :followings, through: :following_follows, source: :following
 
 
-  validates :email, presence: true
-  validates :username, length: { minimum: 2 }
-  validates :info, length: { maximum: 500 }
+  validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, length: { minimum: 2 }
+  validates :info, length: { maximum: 300 }
 
 end
