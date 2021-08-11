@@ -1,22 +1,16 @@
 <div class="page-header" style="text-align: center">All posts</div>
 <!div class="container-fluid" style="display: flex">
-<% if @users.present? %>
-<% @users.each do |user| %>
+<%#if .present? %>
+<% posts = Post.all %>
+<% posts.each  do |post| %>
   <div id="user-container">
-
-  <div id="user-left"><%= image_tag user.image_url(:small), style: 'height:150px;width:150px;' %>
-  </div>
-  <div id="user-right"><h4><%= link_to "#{user.username}", user_path(user) %></h4>
-  <% user.posts.each do |post| %>
-     <div>
-       <%= post.title %>
-       <%= link_to 'Show post', user_post_path(user, post) %>
-     </div>
+    <div class="card">
+      <img class="card-img-top" src="/user.png" alt="Card image cap">
+      <b><h3 class="card-title"><%= post.title %></h3></b>
+    <div><%= truncate(post.body, :length => 70) %></div>
+    <div>
+       <%= link_to 'Show post', user_post_path(post.user_id, post) %>
     </div>
-  <% end %>
   </div>
-  <% end %>
-<% else %>
-  <h1>Not users yet...</h1>
-<%# redirect_to new_user_registration_path  %>
-<% end %>
+    <% end %>
+</div>
