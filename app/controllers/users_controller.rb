@@ -23,19 +23,20 @@ class UsersController < ApplicationController
   end
 
   def edit
-    authorize User.find(params[:id])
+    authorize @user
   end
 
   def update
-    authorize User.find(params[:id])
+    authorize @user
     if @user.update(user_params)
-      redirect_to user_path(@user), flash: { success: 'User successfully updated!' }
+      redirect_to user_path(@user), flash: { success: "User successfully updated! by user?? #{@user.username}. current user is: #{current_user.username}" }
     else
       render :edit
     end
   end
 
   def destroy
+    authorize User.find(params[:id])
     @user.destroy
     redirect_to users_path, flash: { success: 'User deleted.' }
   end

@@ -17,7 +17,7 @@ class UserPolicy < ApplicationPolicy
 
   private
 
-  def post
+  def user
     record
   end
 end
