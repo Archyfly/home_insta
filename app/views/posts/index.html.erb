@@ -6,7 +6,7 @@
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="/user.png" alt="Card image cap">
       <h5 class="card-title">
-        <div><%= link_to "#{post.title}", user_post_path(post.user_id, post.id) %></div>
+        <div><b><%= link_to "#{post.title}", user_post_path(post.user_id, post.id) %></b></div>
         <div> by user: <%= post.user.username %></div>
         <%= link_to 'Show', user_post_path(post.user_id, post.id) %> |
         <%= link_to 'Edit', edit_user_post_path(post.user_id, post.id) %> |

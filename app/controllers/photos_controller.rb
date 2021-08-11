@@ -16,7 +16,7 @@ class PhotosController < ApplicationController
     if @photo.save
       flash[:success] = 'Photo added!'
       #redirect_to user_post_path(@user.id)
-      redirect_to root_path
+      redirect_to user_post_path(current_user, @post)
     else
       render 'new'
     end
