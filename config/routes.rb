@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users do#, only: [:index, :show, :edit, :update]
     resources :posts do
-      resources :comments
+      resources :comments, shallow: true
       resources :photos
     end
     resources :followers, only: :index

@@ -2,6 +2,12 @@
 <%= flash[:message]%>
 <h4>Username: <%= @user.username %></h4>
 <div>About me: <%= @user.info %></div>
+<% if @user.followers.exists? %>
+  <%= link_to "All my followers", user_followers_path(@user)%>
+  <% else %>
+  <b>This user hasn't followers</b>
+<% end %>
+<br/>
 <div>Avatar<% @user.image_data %></div>
 <% if @user.image_data? %>
 
@@ -20,6 +26,12 @@
 
 <% if current_user.present? && current_user != @user %>
   <%= link_to "Follow", follows_path(following_id: @user.id), method: :post %>
+<% end %><br/>
+<% if @user.followings.exists? %>
+  <%= link_to "All followings of  #{@user.username}", user_followings_path(@user)%>
+<% else %>
+  <b>This user hasn't followings</b>
+
 <% end %>
 <%#= link_to 'Add Photo', new_user_photo_path(@user.id) %>
 
