@@ -10,18 +10,20 @@
     </div>
     <hr>
     <div id="user-right">
-      <h4>Username: <%= user.username %></h4>
+      <h4>Username: <%= link_to "#{user.username}", user_path(user)  %> </h4>
       <div>About me: <%= user.info %></div>
-      <%= link_to "View all user posts", user_posts_path(user) %><br/> |
+      <%= link_to "View all user posts", user_posts_path(user) %><br/>
+    <% if current_user.present? && user == current_user %>
       <%= link_to 'Edit profile', edit_user_path(user) %> |
       <%= link_to 'Delete user',
                   user_path(user),
                   method: :delete,
                   data: { confirm: 'User will be deleted! Are you sure?' } %></span>
+        <% end %>
     </div>
 
-    <h3>Followers count: <%= user.followers.count %> </h3>
-    <h3>Followings count: <%= user.followings.count %></h3>
+    <ul>Followers count: <%= user.followers.count %> </ul>
+    <ul>Followings count: <%= user.followings.count %></ul>
 
   </div>
 
