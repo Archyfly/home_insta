@@ -97,8 +97,13 @@ RSpec.configure do |config|
 =end
   File.delete('example.log') if File.exist?('example.log')
 
-  $logger = Logger.new File.new('example.log', 'a')
+  $logger = Logger.new(File.new('example.log', 'a'), datetime_format: '%Y-%m-%d %H:%M:%S')
   $logger.level = Logger::INFO
+
+  def current_time
+    d = Time.now
+    return  d.strftime(" %m/%d/%Y at %I:%M:%s")
+  end
 
 end
 

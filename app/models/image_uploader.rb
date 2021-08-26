@@ -8,6 +8,7 @@ class ImageUploader < Shrine
   plugin :cached_attachment_data
   plugin :remove_attachment
   plugin :delete_raw
+  plugin :validation_helpers
 
 
   Attacher.validate do

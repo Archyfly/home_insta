@@ -7,5 +7,5 @@ class Post < ApplicationRecord
 
   validates :title, :body, presence: true
   validates :title, length: { minimum: 5 }
-  validates :title, length: { maximum: 30, too_long: "30 characters is the maximum allowed" }
+  validates :title, length: { maximum: 30 } #, too_long: "30 characters is the maximum allowed" }
 end
