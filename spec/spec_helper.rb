@@ -13,6 +13,8 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+#
+require 'logger'
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -93,6 +95,11 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  File.delete('example.log') if File.exist?('example.log')
+
+  $logger = Logger.new File.new('example.log', 'a')
+  $logger.level = Logger::INFO
+
 end
 
 
