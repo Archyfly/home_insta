@@ -6,10 +6,10 @@ FactoryBot.define do
     title { FFaker::Book.title }
     body { FFaker::Lorem.sentence }
 
-    #image { Rack::Test::UploadedFile.new('spec/fixtures/pix.png') }
+    #image_data { Rack::Test::UploadedFile.new('spec/fixtures/pix.png') }
 
     #trait (:with_invalid_image) do
-    #  image { Rack::Test::UploadedFile.new('spec/fixtures/pix.doc') }
-
+    #  image_data { Rack::Test::UploadedFile.new('spec/fixtures/pix.doc') }
+    #end
   end
 end

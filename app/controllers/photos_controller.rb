@@ -12,6 +12,7 @@ class PhotosController < ApplicationController
   end
 
   def create
+    authorize @post
     @photo = @post.photos.create(photo_params)
     if @photo.save
       flash[:success] = 'Photo added!'

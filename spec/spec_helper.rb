@@ -45,7 +45,9 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
+  #config.include Devise::Test::IntegrationHelpers, type: :request
+  #
+  #
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
@@ -97,8 +99,15 @@ RSpec.configure do |config|
 =end
   File.delete('example.log') if File.exist?('example.log')
 
-  $logger = Logger.new File.new('example.log', 'a')
+  $logger = Logger.new(File.new('example.log', 'a'), datetime_format: '%Y-%m-%d %H:%M:%S')
   $logger.level = Logger::INFO
+
+  def current_time
+    d = Time.now
+    return  d.strftime(" %m/%d/%Y at %I:%M:%s")
+  end
+
+
 
 end
 
