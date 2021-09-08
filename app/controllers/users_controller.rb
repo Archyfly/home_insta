@@ -42,7 +42,8 @@ class UsersController < ApplicationController
   end
 
   def all_posts
-    @users = User.all
+    #@users = User.all
+    @posts = Post.all
   end
 
   private
