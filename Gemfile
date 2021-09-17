@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
 gem 'bootstrap-sass'
+
 gem 'spring'
 gem 'shrine', github: 'shrinerb/shrine'
 gem "image_processing"

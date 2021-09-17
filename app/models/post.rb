@@ -2,8 +2,8 @@ class Post < ApplicationRecord
   #include ImageUploader::Attachment[:image]
 
   belongs_to :user, required: true
-  has_many :comments
-  has_many :photos
+  has_many :comments, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   validates :title, :body, presence: true
   validates :title, length: { minimum: 5 }

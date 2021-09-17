@@ -3,14 +3,15 @@
 <%#if .present? %>
 <%# @posts = Post.all %>
 <% @posts.each do |post| %>
-  <div id="user-container">
-    <div class="card">
+  <div id="user-container" class="mb-3 mt-3">
+    <div class="card mb-3">
       <img class="card-img-top" src="/user.png" alt="Card image cap">
       <b><h3 class="card-title"><%= post.title %></h3></b>
     <div><%= truncate(post.body, :length => 70) %></div>
     <div>
-       <%= link_to 'Show post', user_post_path(post.user_id, post) %>
+       <%= link_to 'Show post', user_post_path(post.user_id, post), class: 'btn btn-primary' %>
     </div>
+      <hr>
   </div>
     <% end %>
 </div>
